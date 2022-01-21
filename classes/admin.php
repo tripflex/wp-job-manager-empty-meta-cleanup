@@ -14,5 +14,6 @@ class Admin {
 	 * Admin constructor.
 	 */
 	public function __construct() {
+
 	}
 }

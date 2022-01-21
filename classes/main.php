@@ -45,6 +45,11 @@ class Main {
 			new Admin();
 		}
 
+		new Plugins();
+		new Job();
+		new Resume();
+		// Companies gets loaded in Plugins() due to numerous different ones available
+
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );
 		register_deactivation_hook( __FILE__, array( $this, '_deactivate' ) );
 	}
