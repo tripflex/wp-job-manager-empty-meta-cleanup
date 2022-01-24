@@ -23,6 +23,9 @@ Anytime WP Job Manager or related plugins (WP Job Manager Resumes, Cariera (Comp
 does so for every field configured, even if there is no value to be saved. This can result in a large amount of empty meta values stored in the database, ultimately causing slower
 query times, a larger database, and issues with querying for listings based on meta values (when using Search and Filtering for WP Job Manager).
 
+This plugin has zero ads (and currently no UI), and is completely open source.  You can contribute to this project on GitHub:
+https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
+
 == Frequently Asked Questions ==
 
 = Do I really need this? =
@@ -39,6 +42,11 @@ but for now we just delete the empty meta value after it's added to the database
 = Can I exclude specific fields? =
 
 Yes you can, please check GitHub project for associated filters that can be used (a UI will be added in a later release for this)
+
+= How else can I speed up my site and database? =
+
+I strongly recommend also using the "Index WP MySQL for Speed" plugin to add indexes to your database:
+https://wordpress.org/plugins/index-wp-mysql-for-speed/
 
 == Changelog ==
 
