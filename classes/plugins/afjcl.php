@@ -2,6 +2,7 @@
 
 namespace sMyles\WPJM\EMC\Plugins;
 use sMyles\WPJM\EMC\Meta\Remove as MetaRemove;
+use sMyles\WPJM\EMC\Admin\Plugins\AFJCL as AFJCLAdmin;
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
@@ -22,6 +23,10 @@ class AFJCL extends MetaRemove {
 	 */
 	public function __construct() {
 		add_action( 'company_listings_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
+
+		if ( is_admin() ) {
+			new AFJCLAdmin();
+		}
 	}
 
 	/**
@@ -42,12 +47,27 @@ class AFJCL extends MetaRemove {
 		}
 
 		if ( ! class_exists( 'WP_Job_Manager_Company_Form' ) ) {
-			require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-afj-company-listings-company-form.php' );
+			/**
+			 * Original TechBrise Company Listings Plugin compatibility
+			 */
+			if ( file_exists( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-wp-job-manager-company-listings-company-form.php' ) ) {
+				require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-wp-job-manager-company-listings-company-form.php' );
+			} else {
+				require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-afj-company-listings-company-form.php' );
+			}
 		}
 
 		if ( ! class_exists( 'WP_Job_Manager_Company_Listings_Form_Submit_Company' ) ) {
-			require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-afj-company-listings-form-submit-company.php' );
+			/**
+			 * Original TechBrise Company Listings Plugin compatibility
+			 */
+			if ( file_exists( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-wp-job-manager-company-listings-form-submit-company.php' ) ) {
+				require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-wp-job-manager-company-listings-form-submit-company.php' );
+			} else {
+				require_once( COMPANY_LISTINGS_PLUGIN_DIR . '/includes/forms/class-afj-company-listings-form-submit-company.php' );
+			}
 		}
+
 		$wpcm = \WP_Job_Manager_Company_Listings_Form_Submit_Company::instance();
 
 		return [

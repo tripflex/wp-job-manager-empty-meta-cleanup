@@ -1,8 +1,8 @@
 <?php
 
 namespace sMyles\WPJM\EMC\Plugins;
-
 use sMyles\WPJM\EMC\Meta\Remove as MetaRemove;
+use sMyles\WPJM\EMC\Admin\Plugins\MASCM as MASCMAdmin;
 
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 
@@ -23,6 +23,10 @@ class MASCM extends MetaRemove {
 	 */
 	public function __construct() {
 		add_action( 'mas_job_manager_company_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
+
+		if ( is_admin() ) {
+			new MASCMAdmin();
+		}
 	}
 
 	/**
