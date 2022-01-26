@@ -6,7 +6,7 @@
  * Version:     1.0.0
  * Author:      Myles McNamara
  * Author URI:  https://smyl.es
- * License:     GPL3
+ * License:     GPL v3 or later
  * Text Domain: wp-job-manager-empty-meta-cleanup
  * Domain Path: /languages
  * Requires at least: 4.2
