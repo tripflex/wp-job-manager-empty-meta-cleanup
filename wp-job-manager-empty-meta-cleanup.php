@@ -6,8 +6,7 @@
  * Version:     1.0.0
  * Author:      Myles McNamara
  * Author URI:  https://smyl.es
- * Plugin URI: https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
- * Github Plugin URI: https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
+ * Plugin URI:  https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
  * License:     GPL v3 or later
  * Text Domain: wp-job-manager-empty-meta-cleanup
  * Domain Path: /languages
