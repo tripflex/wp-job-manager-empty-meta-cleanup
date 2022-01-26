@@ -13,14 +13,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class AFJCL extends MetaRemove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Plugins\AFJCL
 	 */
-	public $type = 'company';
+	public $type;
 
 	/**
 	 * AFJCL constructor.
+	 *
+	 * @param $type \sMyles\WPJM\EMC\Plugins\AFJCL
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+		new AFJCL\Settings( $this );
 		add_action( 'company_listings_save_company', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

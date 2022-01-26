@@ -12,14 +12,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class Resume extends Meta\Remove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Job
 	 */
-	public $type = 'resume';
+	public $type;
 
 	/**
 	 * Resume constructor.
+	 *
+	 * @param $type \sMyles\WPJM\EMC\Resume
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+
 		add_action( 'resume_manager_save_resume', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

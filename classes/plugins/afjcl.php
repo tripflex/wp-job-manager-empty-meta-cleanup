@@ -16,7 +16,7 @@ class AFJCL extends MetaRemove {
 	/**
 	 * @var string
 	 */
-	public $type = 'company';
+	public $slug = 'company';
 
 	/**
 	 * AFJCL constructor.
@@ -25,8 +25,19 @@ class AFJCL extends MetaRemove {
 		add_action( 'company_listings_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 
 		if ( is_admin() ) {
-			new AFJCLAdmin();
+			new AFJCLAdmin( $this );
 		}
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label() {
+		return __( 'Company' );
 	}
 
 	/**

@@ -16,7 +16,7 @@ class CM extends MetaRemove {
 	/**
 	 * @var string
 	 */
-	public $type = 'company';
+	public $slug = 'company';
 
 	/**
 	 * CM constructor.
@@ -25,8 +25,20 @@ class CM extends MetaRemove {
 		add_action( 'company_manager_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 
 		if( is_admin() ){
-			new CMAdmin();
+			new CMAdmin( $this );
 		}
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label() {
+
+		return __( 'Company' );
 	}
 
 	/**

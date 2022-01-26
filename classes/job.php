@@ -14,13 +14,28 @@ class Job extends Meta\Remove {
 	/**
 	 * @var string
 	 */
-	public $type = 'job';
+	public $slug = 'job';
 
 	/**
 	 * Job constructor.
 	 */
 	public function __construct() {
+		if( is_admin() ){
+			new Admin\Job( $this );
+		}
+
 		add_action( 'job_manager_update_job_data', array( $this, 'check_fields_and_remove' ), 99999, 2 );
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label(){
+		return __( 'Job' );
 	}
 
 	/**

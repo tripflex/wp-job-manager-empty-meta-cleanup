@@ -13,14 +13,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class Cariera extends MetaRemove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Plugins\Cariera
 	 */
-	public $type = 'company';
+	public $type;
 
 	/**
-	 * CM constructor.
+	 * Cariera constructor.
+	 *
+	 * @param $type
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+		new Cariera\Settings( $this );
 		add_action( 'cariera_save_company', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

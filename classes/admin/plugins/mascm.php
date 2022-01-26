@@ -13,14 +13,16 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class MASCM extends MetaRemove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Plugins\MASCM
 	 */
-	public $type = 'company';
+	public $type;
 
 	/**
 	 * MASCM constructor.
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+		new MASCM\Settings( $this );
 		add_action( 'company_manager_save_company', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

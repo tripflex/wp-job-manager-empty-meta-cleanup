@@ -21,17 +21,21 @@ class Remove {
 	 *
 	 */
 	public function check_fields_and_remove( $listing_id, $post ) {
+
+		if( ! get_option( "job_manager_empty_meta_cleanup_{$this->type->slug}_enable", true ) ){
+			return;
+		}
+
 		$fields = $this->get_fields();
 		$skip_meta_keys = apply_filters( 'job_manager_empty_meta_cleaner_admin_skip_meta_keys', array(), $listing_id, $post, $this );
 
 		foreach( (array) $fields as $_meta_key => $config ){
-
-			$raw_field_value = isset( $_POST[ $_meta_key ] ) ? $_POST[ $_meta_key ] : false;
-
 			/**
 			 * Get the meta key without the prepended underscore, in case user passes value for skip keys without the prepended underscore ;-)
 			 */
 			$meta_key = substr( $_meta_key, 0, 1 ) === '_' ? substr( $_meta_key, 1 ) : $_meta_key;
+
+			$raw_field_value = isset( $_POST[ $_meta_key ] ) ? $_POST[ $_meta_key ] : false;
 
 			/**
 			 * Because WP Job Manager saves fields even if there is no value for them, after this is done, we check if our custom field has an empty value,

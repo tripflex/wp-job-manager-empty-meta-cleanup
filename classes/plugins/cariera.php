@@ -16,17 +16,73 @@ class Cariera extends MetaRemove {
 	/**
 	 * @var string
 	 */
-	public $type = 'company';
+	public $slug = 'company';
 
 	/**
 	 * CM constructor.
 	 */
 	public function __construct() {
 		add_action( 'cariera_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
-
+		add_filter( 'job_manager_empty_meta_cleaner_extra_meta_keys', [ $this, 'extra_meta_keys' ] );
 		if ( is_admin() ) {
-			new CarieraAdmin();
+			new CarieraAdmin( $this );
 		}
+
+		add_filter( 'job_manager_empty_meta_cleaner_admin_diff_keys', [ $this, 'admin_diff_keys' ] );
+	}
+
+	/**
+	 * Extra Meta Keys to Clean
+	 *
+	 * Extra meta cleans to clean from database (these are used for frontend), but in some situations could exist saved to the database.
+	 *
+	 * @param $extra
+	 *
+	 * @return mixed
+	 * @since @@version
+	 *
+	 */
+	public function extra_keys( $extra ) {
+		$frontend = [ 'candidate_rate', 'candidate_languages', 'candidate_featured_image', 'candidate_facebook', 'candidate_twitter', 'candidate_linkedin', 'candidate_instagram', 'candidate_youtube', 'candidate_rate' ];
+		return array_merge( $extra, $frontend );
+	}
+
+	/**
+	 * Admin/Frontend Different Meta Keys
+	 *
+	 * For some reason Gino decided to use different keys for admin area and frontend, this will tell FE
+	 * to use a specific meta key for admin and specific one for frontend.
+	 *
+	 * @param $keys
+	 *
+	 * @return mixed
+	 * @since @@version
+	 *
+	 */
+	public function admin_diff_keys( $keys ) {
+
+		$keys['candidate_rate']           = 'rate';
+		$keys['candidate_languages']      = 'languages';
+		$keys['candidate_featured_image'] = 'featured_image';
+		$keys['candidate_facebook']       = 'facebook';
+		$keys['candidate_twitter']        = 'twitter';
+		$keys['candidate_linkedin']       = 'linkedin';
+		$keys['candidate_instagram']      = 'instagram';
+		$keys['candidate_youtube']        = 'youtube';
+		$keys['candidate_rate']           = 'rate';
+
+		return $keys;
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label() {
+		return __( 'Company' );
 	}
 
 	/**

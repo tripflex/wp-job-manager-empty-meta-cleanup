@@ -14,9 +14,6 @@ class Admin {
 	 * Admin constructor.
 	 */
 	public function __construct() {
-		new Admin\Job();
-		new Admin\Resume();
-
 		/**
 		 * Company related plugin handling is initialized by the Plugin class
 		 */

@@ -14,13 +14,29 @@ class Resume extends Meta\Remove {
 	/**
 	 * @var string
 	 */
-	public $type = 'resume';
+	public $slug = 'resume';
 
 	/**
 	 * Resume constructor.
 	 */
 	public function __construct() {
+
+		if( is_admin() ){
+			new Admin\Resume( $this );
+		}
+
 		add_action( 'resume_manager_update_resume_data', array( $this, 'check_fields_and_remove' ), 99999, 2 );
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label() {
+		return __( 'Resume' );
 	}
 
 	/**

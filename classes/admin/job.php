@@ -12,14 +12,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class Job extends Meta\Remove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Job
 	 */
-	public $type = 'job';
+	public $type;
 
 	/**
 	 * Job constructor.
+	 *
+	 * @param $type \sMyles\WPJM\EMC\Job
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+		new Job\Settings( $this );
 
 		/**
 		 * Priority must be higher than 20 to be called after core WPJM handling

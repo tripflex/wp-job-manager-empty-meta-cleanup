@@ -13,14 +13,18 @@ defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
 class CM extends MetaRemove {
 
 	/**
-	 * @var string
+	 * @var \sMyles\WPJM\EMC\Plugins\CM
 	 */
-	public $type = 'company';
+	public $type;
 
 	/**
 	 * CM constructor.
+	 *
+	 * @param \sMyles\WPJM\EMC\Plugins\CM $type
 	 */
-	public function __construct() {
+	public function __construct( $type ) {
+		$this->type = $type;
+		new CM\Settings( $this );
 		add_action( 'company_manager_save_company', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

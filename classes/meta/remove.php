@@ -21,6 +21,11 @@ class Remove {
 	 *
 	 */
 	public function check_fields_and_remove( $listing_id, $values ) {
+
+		if ( ! get_option( "job_manager_empty_meta_cleanup_{$this->type->slug}_enable", true ) ) {
+			return;
+		}
+
 		$fields = $this->get_fields();
 		$skip_meta_keys = apply_filters( 'job_manager_empty_meta_cleaner_frontend_skip_meta_keys', array(), $listing_id, $values, $this );
 

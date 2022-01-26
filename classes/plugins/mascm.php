@@ -16,7 +16,7 @@ class MASCM extends MetaRemove {
 	/**
 	 * @var string
 	 */
-	public $type = 'company';
+	public $slug = 'company';
 
 	/**
 	 * MASCM constructor.
@@ -25,8 +25,20 @@ class MASCM extends MetaRemove {
 		add_action( 'mas_job_manager_company_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 
 		if ( is_admin() ) {
-			new MASCMAdmin();
+			new MASCMAdmin( $this );
 		}
+	}
+
+	/**
+	 * Get Label
+	 *
+	 * @return string|void
+	 * @since @@version
+	 *
+	 */
+	public function get_label() {
+
+		return __( 'Company' );
 	}
 
 	/**
