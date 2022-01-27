@@ -23,7 +23,7 @@ class Resume extends Meta\Remove {
 	 */
 	public function __construct( $type ) {
 		$this->type = $type;
-
+		new Resume\Settings( $this );
 		add_action( 'resume_manager_save_resume', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 	}
 

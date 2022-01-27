@@ -6,11 +6,10 @@ Tested up to: 5.9
 Requires PHP: 5.6
 Stable tag: 1.0.0
 Network: true
-License: GPL v3 or later
-License URI: https://www.gnu.org/licenses/gpl-3.0.html
+License: GPLv2 or later
+License URI: https://www.gnu.org/licenses/gpl-2.0.html
 Author URI: https://smyl.es
 Plugin URI: https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
-Primary Branch: master
 Text Domain: wp-job-manager-empty-meta-cleanup
 Domain Path: /languages
 

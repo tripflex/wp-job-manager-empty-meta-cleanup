@@ -5,9 +5,9 @@
  * Description: Clean up and prevent empty meta from being saved for Job, Company, or Resume listings in database
  * Version:     1.0.0
  * Author:      Myles McNamara
- * Author URI:  https://smyl.es
  * Plugin URI:  https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
- * License:     GPL v3 or later
+ * License:     GPLv2 or Later
+ * License URI: https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain: wp-job-manager-empty-meta-cleanup
  * Domain Path: /languages
  * Requires at least: 4.2
