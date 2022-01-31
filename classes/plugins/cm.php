@@ -17,6 +17,33 @@ class CM extends MetaRemove {
 	 * @var string
 	 */
 	public $slug = 'company';
+	/**
+	 * @var string
+	 */
+	public $post_type = 'company';
+	/**
+	 * @var null|\sMyles\WPJM\EMC\Plugins\CM
+	 */
+	protected static $single_instance = null;
+	/**
+	 * @var \sMyles\WPJM\EMC\Admin\Plugins\CM
+	 */
+	public $admin;
+
+	/**
+	 * Creates or returns an instance of this class.
+	 *
+	 * @return CM A single instance of this class.
+	 * @since  1.0.0
+	 */
+	public static function get_instance() {
+
+		if ( null === self::$single_instance ) {
+			self::$single_instance = new self();
+		}
+
+		return self::$single_instance;
+	}
 
 	/**
 	 * CM constructor.
@@ -25,7 +52,7 @@ class CM extends MetaRemove {
 		add_action( 'company_manager_update_company_data', [ $this, 'check_fields_and_remove' ], 99999, 2 );
 
 		if( is_admin() ){
-			new CMAdmin( $this );
+			$this->admin = new CMAdmin( $this );
 		}
 	}
 
@@ -44,11 +71,12 @@ class CM extends MetaRemove {
 	/**
 	 * Get Company Manager Fields
 	 *
+	 * @param bool $only_fields
+	 *
 	 * @return array
 	 * @since @@version
-	 *
 	 */
-	public function get_fields() {
+	public function get_fields( $only_fields = false ) {
 
 		if ( ! defined( 'JOB_MANAGER_PLUGIN_DIR' ) || ! defined( 'COMPANY_MANAGER_PLUGIN_DIR' ) ) {
 			return [];
@@ -64,8 +92,6 @@ class CM extends MetaRemove {
 
 		$wpcm = \WP_Company_Manager_Form_Submit_Company::instance();
 
-		return [
-			'company_fields' => $wpcm->get_fields( 'company_fields' )
-		];
+		return $only_fields ? $wpcm->get_fields( 'company_fields' ) : [ 'company_fields' => $wpcm->get_fields( 'company_fields' ) ];
 	}
 }

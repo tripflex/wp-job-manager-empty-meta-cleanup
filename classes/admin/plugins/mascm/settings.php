@@ -23,6 +23,7 @@ class Settings extends AdminSettings {
 		 * MASCM seems to put these under the Job Manager settings area (for some reason who knows why)
 		 */
 		add_filter( 'job_manager_settings', array( $this, 'add_tab' ), 999999 );
+		$this->init_fields();
 	}
 
 	/**
