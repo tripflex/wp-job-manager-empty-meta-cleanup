@@ -17,14 +17,22 @@ Automatically prune empty meta from being saved to database when using WP Job Ma
 
 == Description ==
 
-Anytime WP Job Manager or related plugins (WP Job Manager Resumes, Cariera (Companies), Company Manager, Astoundify Company Listings, and MAS Company Manager) saves a listing, it
-does so for every field configured, even if there is no value to be saved. This can result in a large amount of empty meta values stored in the database, ultimately causing slower
-query times, a larger database, and issues with querying for listings based on meta values (when using Search and Filtering for WP Job Manager).
+Anytime WP Job Manager or related plugins (WP Job Manager Resumes, Cariera (Companies), Company Manager, Astoundify Company Listings, and MAS Company Manager) saves a listing, it does so for every field configured, even if there is no value to be saved.
 
-This plugin has zero ads (and currently no UI), and is completely open source.  You can contribute to this project on GitHub:
+This can result in a large amount of empty meta values stored in the database, ultimately causing slower query times, a larger database, and issues with querying for listings based on meta values (when using Search and Filtering for WP Job Manager).
+
+Configuration can be found under the "Meta" tab in the associated Settings page (Job, Resume, or Companies).
+
+You can contribute to this project on GitHub:
 https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
 
+It's also STRONGLY recommended that you also install the Index WP MySQL for Speed plugin
+https://wordpress.org/plugins/index-wp-mysql-for-speed/
+
 == Frequently Asked Questions ==
+= How do I cleanup existing empty meta? =
+
+To cleanup existing empty meta entries in the database, you must be have either the WP Job Manager Field Editor 1.12.2+ or Search and Filtering for WP Job Manager 1.1.9+ plugin installed and activated.  The code that handles that is included in those plugins, and is not something included with this plugin.
 
 = Do I really need this? =
 
