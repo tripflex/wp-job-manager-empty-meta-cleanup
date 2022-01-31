@@ -20,6 +20,7 @@ class Settings extends AdminSettings {
 	public function __construct( $admin ) {
 		$this->admin = $admin;
 		add_filter( 'company_listings_settings', array( $this, 'add_tab' ), 999999 );
+		$this->init_fields();
 	}
 
 	/**

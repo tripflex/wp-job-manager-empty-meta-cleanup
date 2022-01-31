@@ -20,6 +20,7 @@ class Settings extends AdminSettings {
 	public function __construct( $admin ) {
 		$this->admin = $admin;
 		add_filter( 'job_manager_settings', array( $this, 'add_tab' ), 999999 );
+		$this->init_fields();
 	}
 
 }

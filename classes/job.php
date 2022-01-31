@@ -17,11 +17,41 @@ class Job extends Meta\Remove {
 	public $slug = 'job';
 
 	/**
+	 * @var string
+	 */
+	public $post_type = 'job_listing';
+
+	/**
+	 * @var Admin\Job
+	 */
+	public $admin;
+
+	/**
+	 * @var null|\sMyles\WPJM\EMC\Job
+	 */
+	protected static $single_instance = null;
+
+	/**
+	 * Creates or returns an instance of this class.
+	 *
+	 * @return Job A single instance of this class.
+	 * @since  1.0.0
+	 */
+	public static function get_instance() {
+
+		if ( null === self::$single_instance ) {
+			self::$single_instance = new self();
+		}
+
+		return self::$single_instance;
+	}
+
+	/**
 	 * Job constructor.
 	 */
 	public function __construct() {
 		if( is_admin() ){
-			new Admin\Job( $this );
+			$this->admin = new Admin\Job( $this );
 		}
 
 		add_action( 'job_manager_update_job_data', array( $this, 'check_fields_and_remove' ), 99999, 2 );
@@ -41,11 +71,12 @@ class Job extends Meta\Remove {
 	/**
 	 * Get WP Job Manager Fields
 	 *
+	 * @param bool $only_fields
+	 *
 	 * @return array
 	 * @since @@version
-	 *
 	 */
-	public function get_fields() {
+	public function get_fields( $only_fields = false ) {
 
 		if ( ! defined( 'JOB_MANAGER_PLUGIN_DIR' ) ) {
 			return [];
@@ -68,6 +99,10 @@ class Job extends Meta\Remove {
 
 		$wpjm = \WP_Job_Manager_Form_Submit_Job::instance();
 		$wpjm->init_fields();
+
+		if( $only_fields ){
+			return array_merge( $wpjm->get_fields( 'job' ), $wpjm->get_fields( 'company' ) );
+		}
 
 		return [
 			'job'     => $wpjm->get_fields( 'job' ),

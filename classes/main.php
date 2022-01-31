@@ -40,14 +40,15 @@ class Main {
 	 * @since  1.0.0
 	 */
 	protected function __construct() {
+
 		// Init Classes
 		if ( is_admin() ) {
 			new Admin();
 		}
 
-		new Plugins();
-		new Job();
-		new Resume();
+		Company::get_instance();
+		Job::get_instance();
+		Resume::get_instance();
 		// Companies gets loaded in Plugins() due to numerous different ones available
 
 		register_activation_hook( __FILE__, array( $this, '_activate' ) );

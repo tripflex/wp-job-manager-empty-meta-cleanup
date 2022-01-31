@@ -23,7 +23,29 @@ class Settings {
 	 *
 	 */
 	public function init_fields(){
-//		add_action( 'wp_job_manager_admin_field_cleanup_handler', [ $this, 'cleanup_handler' ] );
+		$hook = $this->get_custom_field_hook();
+		/**
+		 * Field type required to have type slug (job/resume/company/etc) to prevent duplicate output in
+		 * admin area due to adding action for same hook mulitple times
+		 */
+		add_action( "{$hook}existing_{$this->admin->type->slug}_meta_cleaner", [ $this, 'cleanup_handler' ] );
+	}
+
+	/**
+	 * Cleanup Handler Output
+	 *
+	 * @param $option
+	 *
+	 * @since @@version
+	 *
+	 */
+	public function cleanup_handler( $option ) {
+		$show_default = apply_filters( 'job_manager_empty_meta_cleanup_handler_output_show_default', true, $this );
+		if( $show_default ){
+			echo __( 'Existing meta removal requires either the WP Job Manager Field Editor 1.21.1+, or the Search and Filtering for WP Job Manager 1.1.9+ plugin.' );
+		}
+
+		do_action( 'job_manager_empty_meta_cleanup_handler_output', $this->admin, $this );
 	}
 
 	/**
@@ -81,6 +103,12 @@ class Settings {
 					'label'    => __( 'Auto Removal' ),
 					'desc'     => __( 'When this setting is enabled, and a listing is submitted and/or updated, any empty meta values will automatically be removed from the database' ),
 					'type'     => 'checkbox'
+				],
+				[
+					'name'     => "job_manager_empty_meta_cleanup_{$slug}_existing_cleaner",
+					'label'    => __( 'Existing Meta' ),
+					'desc'     => __( 'When this setting is enabled, and a listing is submitted and/or updated, any empty meta values will automatically be removed from the database' ),
+					'type'     => "existing_{$this->admin->type->slug}_meta_cleaner"
 				]
 			]
 		];
