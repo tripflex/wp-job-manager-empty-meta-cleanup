@@ -17,7 +17,7 @@ class Remove {
 	 * Ideally this would be handled by removing the fields from the fields array, preventing WP Job Manager (or other plugins) from actually saving
 	 * the fields, but that would take a very extensive amount of work and could cause other complications.  For now we just delete the meta.
 	 *
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function check_fields_and_remove( $listing_id, $post ) {
@@ -53,7 +53,7 @@ class Remove {
 	 * Get Fields Placeholder
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_fields() {

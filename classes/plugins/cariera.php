@@ -67,7 +67,7 @@ class Cariera extends MetaRemove {
 	 * @param $extra
 	 *
 	 * @return mixed
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function extra_keys( $extra ) {
@@ -84,7 +84,7 @@ class Cariera extends MetaRemove {
 	 * @param $keys
 	 *
 	 * @return mixed
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function admin_diff_keys( $keys ) {
@@ -106,7 +106,7 @@ class Cariera extends MetaRemove {
 	 * Get Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_label() {
@@ -117,7 +117,7 @@ class Cariera extends MetaRemove {
 	 * Get Company Manager Fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_fields( $only_fields = false ) {

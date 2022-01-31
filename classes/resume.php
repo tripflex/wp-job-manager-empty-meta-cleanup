@@ -60,7 +60,7 @@ class Resume extends Meta\Remove {
 	 * Get Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_label() {
@@ -73,7 +73,7 @@ class Resume extends Meta\Remove {
 	 * @param bool $only_fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 */
 	public function get_fields( $only_fields = false ) {
 

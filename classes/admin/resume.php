@@ -31,7 +31,7 @@ class Resume extends Meta\Remove {
 	 * Get Job Fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_fields() {

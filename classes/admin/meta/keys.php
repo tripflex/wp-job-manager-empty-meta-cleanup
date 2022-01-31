@@ -18,7 +18,7 @@ class Keys {
 	 *
 	 * The array format should be the frontend meta key as the array key, and admin area meta key as the value (without any prepended underscores)
 	 *
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public static function get_diff_keys() {

@@ -30,7 +30,7 @@ class Settings extends AdminSettings {
 	 * Get Tab Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_tab_label() {
@@ -41,7 +41,7 @@ class Settings extends AdminSettings {
 	 * Get Tab Slug
 	 *
 	 * @return string
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_tab_slug() {

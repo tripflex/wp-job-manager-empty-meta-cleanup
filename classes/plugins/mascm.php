@@ -60,7 +60,7 @@ class MASCM extends MetaRemove {
 	 * Get Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_label() {
@@ -74,7 +74,7 @@ class MASCM extends MetaRemove {
 	 * @param bool $only_fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 */
 	public function get_fields( $only_fields = false ) {
 

@@ -19,7 +19,7 @@ class Settings {
 	/**
 	 * Init Fields
 	 *
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function init_fields(){
@@ -36,7 +36,7 @@ class Settings {
 	 *
 	 * @param $option
 	 *
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function cleanup_handler( $option ) {
@@ -52,7 +52,7 @@ class Settings {
 	 * Custom Field Hook
 	 *
 	 * @return string
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_custom_field_hook() {
@@ -63,7 +63,7 @@ class Settings {
 	 * Get Tab Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_tab_label() {
@@ -74,7 +74,7 @@ class Settings {
 	 * Get Tab Slug
 	 *
 	 * @return string
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_tab_slug() {
@@ -87,7 +87,7 @@ class Settings {
 	 * @param $settings
 	 *
 	 * @return mixed
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function add_tab( $settings ) {

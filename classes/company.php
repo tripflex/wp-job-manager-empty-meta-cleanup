@@ -43,7 +43,7 @@ class Company {
 	 * Company Manager
 	 *
 	 * @return bool
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public static function has_company_manager() {
@@ -69,7 +69,7 @@ class Company {
 	 * Cariera Companies (built-in to theme)
 	 *
 	 * @return bool
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public static function has_cariera_companies() {
@@ -95,7 +95,7 @@ class Company {
 	 * MAS Company Manager
 	 *
 	 * @return bool
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public static function has_mascm_companies() {
@@ -107,7 +107,7 @@ class Company {
 	 * Astoundify Company Listings
 	 *
 	 * @return bool
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public static function has_afjcl_companies() {

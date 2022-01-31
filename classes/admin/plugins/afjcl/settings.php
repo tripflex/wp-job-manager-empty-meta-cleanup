@@ -29,7 +29,7 @@ class Settings extends AdminSettings {
 	 * Who knows why they are using this hook, it makes ZERO sense!
 	 *
 	 * @return string
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_custom_field_hook() {

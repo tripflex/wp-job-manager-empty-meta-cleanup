@@ -62,7 +62,7 @@ class AFJCL extends MetaRemove {
 	 * Get Label
 	 *
 	 * @return string|void
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_label() {
@@ -73,7 +73,7 @@ class AFJCL extends MetaRemove {
 	 * Get Company Manager Fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_fields( $only_fields = false ) {

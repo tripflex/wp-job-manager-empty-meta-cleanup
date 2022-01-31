@@ -7,7 +7,7 @@ namespace sMyles\WPJM\EMC;
  *
  * @param $class
  *
- * @since @@version
+ * @since 1.0.0
  *
  */
 function autoload_classes( $class ) {

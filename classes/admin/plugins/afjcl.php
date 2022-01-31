@@ -32,7 +32,7 @@ class AFJCL extends MetaRemove {
 	 * Get Company Manager Fields
 	 *
 	 * @return array
-	 * @since @@version
+	 * @since 1.0.0
 	 *
 	 */
 	public function get_fields() {
