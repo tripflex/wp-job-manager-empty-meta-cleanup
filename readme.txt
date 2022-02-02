@@ -4,7 +4,7 @@ Tags: wp job manager, meta, cleanup, wpjobmanager
 Requires at least: 5.2
 Tested up to: 5.9
 Requires PHP: 5.6
-Stable tag: 1.0.0
+Stable tag: 1.0.1
 Network: true
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -55,5 +55,7 @@ I strongly recommend also using the "Index WP MySQL for Speed" plugin to add ind
 https://wordpress.org/plugins/index-wp-mysql-for-speed/
 
 == Changelog ==
+
+= 1.0.1 = Fix incorrect option check on frontend removal
 
 = 1.0.0 = Initial Release
