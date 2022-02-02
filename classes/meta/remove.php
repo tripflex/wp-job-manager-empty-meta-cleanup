@@ -22,7 +22,7 @@ class Remove {
 	 */
 	public function check_fields_and_remove( $listing_id, $values ) {
 
-		if ( ! get_option( "job_manager_empty_meta_cleanup_{$this->type->slug}_enable", true ) ) {
+		if ( ! get_option( "job_manager_empty_meta_cleanup_{$this->slug}_enable", true ) ) {
 			return;
 		}
 
