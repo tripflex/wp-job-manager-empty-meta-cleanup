@@ -31,6 +31,14 @@ class Remove {
 
 		foreach( (array) $fields as $_meta_key => $config ){
 			/**
+			 * If user has manually added any custom repeatable fields, let's made sure to skip those from being removed.  Technically by the time the fields hit this point,
+			 * repeatable fields should not be included at all.
+			 */
+			if( isset( $config['fields'] ) && ! empty( $config['fields'] ) && apply_filters( 'job_manager_empty_meta_cleaner_admin_skip_repeatable', $_meta_key, $config, $fields, $this ) ){
+				continue;
+			}
+
+			/**
 			 * Get the meta key without the prepended underscore, in case user passes value for skip keys without the prepended underscore ;-)
 			 */
 			$meta_key = substr( $_meta_key, 0, 1 ) === '_' ? substr( $_meta_key, 1 ) : $_meta_key;

@@ -55,6 +55,7 @@ I strongly recommend also using the "Index WP MySQL for Speed" plugin to add ind
 https://wordpress.org/plugins/index-wp-mysql-for-speed/
 
 == Changelog ==
+= 1.0.2 = Omit custom repeatable fields when saved from admin area
 
 = 1.0.1 = Fix incorrect option check on frontend removal
 
