@@ -130,11 +130,11 @@ class Cariera extends MetaRemove {
 			include( JOB_MANAGER_PLUGIN_DIR . '/includes/abstracts/abstract-wp-job-manager-form.php' );
 		}
 
-		if ( ! class_exists( 'Cariera_Company_Manager_Form_Submit_Company' ) ) {
-			require_once( CARIERA_PLUGIN_DIR . '/inc/core/wp-company-manager/form/submit-company.php' );
+		if ( ! class_exists( '\Cariera_Core\Core\Company_Manager\Forms\Submit_Company' ) ) {
+			require_once( CARIERA_PLUGIN_DIR . '/inc/core/company-manager/form/submit-company.php' );
 		}
 
-		$wpcm = \Cariera_Company_Manager_Form_Submit_Company::instance();
+		$wpcm = \Cariera_Core\Core\Company_Manager\Forms\Submit_Company::instance();
 
 		return $only_fields ? $wpcm->get_fields( 'company_fields' ) : [ 'company_fields' => $wpcm->get_fields( 'company_fields' ) ];
 	}
