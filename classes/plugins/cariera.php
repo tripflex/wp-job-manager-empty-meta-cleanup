@@ -130,11 +130,30 @@ class Cariera extends MetaRemove {
 			include( JOB_MANAGER_PLUGIN_DIR . '/includes/abstracts/abstract-wp-job-manager-form.php' );
 		}
 
-		if ( ! class_exists( 'Cariera_Company_Manager_Form_Submit_Company' ) ) {
-			require_once( CARIERA_PLUGIN_DIR . '/inc/core/wp-company-manager/form/submit-company.php' );
+		/**
+		 * Version >= 1.7.2+ of Cariera changes to using namespaces
+		 */
+		if ( ! class_exists( '\Cariera_Core\Core\Company_Manager\Forms\Submit_Company' ) ) {
+			// Check for the existence of the old class name
+			if ( class_exists( 'Cariera_Company_Manager_Form_Submit_Company' ) ) {
+				class_alias( 'Cariera_Company_Manager_Form_Submit_Company', '\Cariera_Core\Core\Company_Manager\Forms\Submit_Company' );
+			} else {
+
+				// Define the new and old file paths
+				$new_file_path = CARIERA_PLUGIN_DIR . '/inc/core/company-manager/form/submit-company.php';
+				$old_file_path = CARIERA_PLUGIN_DIR . '/inc/core/wp-company-manager/form/submit-company.php';
+
+				// Check if the new file exists
+				if ( file_exists( $new_file_path ) ) {
+					require_once( $new_file_path );
+				} // If the new file doesn't exist, check if the old file exists
+				else if ( file_exists( $old_file_path ) ) {
+					require_once( $old_file_path );
+				}
+			}
 		}
 
-		$wpcm = \Cariera_Company_Manager_Form_Submit_Company::instance();
+		$wpcm = \Cariera_Core\Core\Company_Manager\Forms\Submit_Company::instance();
 
 		return $only_fields ? $wpcm->get_fields( 'company_fields' ) : [ 'company_fields' => $wpcm->get_fields( 'company_fields' ) ];
 	}
