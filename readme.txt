@@ -2,7 +2,7 @@
 Contributors: tripflex
 Tags: wp job manager, meta, cleanup, wpjobmanager
 Requires at least: 5.2
-Tested up to: 5.9
+Tested up to: 6.4.3
 Requires PHP: 5.6
 Stable tag: 1.0.3
 Network: true
