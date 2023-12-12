@@ -3,7 +3,7 @@
  * Plugin Name: Empty Meta Cleanup for WP Job Manager
  * Plugin URI:  https://smyl.es
  * Description: Clean up and prevent empty meta from being saved for Job, Company, or Resume listings in database
- * Version:     1.0.1
+ * Version:     1.0.3
  * Author:      Myles McNamara
  * Plugin URI:  https://github.com/tripflex/wp-job-manager-empty-meta-cleanup
  * License:     GPLv2 or Later
@@ -11,7 +11,7 @@
  * Text Domain: wp-job-manager-empty-meta-cleanup
  * Domain Path: /languages
  * Requires at least: 4.2
- * Tested up to: 5.8.2
+ * Tested up to: 6.4.2
  * Last Updated: @@timestamp
  */
 defined( 'ABSPATH' ) or die( 'No script kiddies please!' );
