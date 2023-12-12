@@ -4,7 +4,7 @@ Tags: wp job manager, meta, cleanup, wpjobmanager
 Requires at least: 5.2
 Tested up to: 6.4.3
 Requires PHP: 5.6
-Stable tag: 1.0.3
+Stable tag: 1.0.4
 Network: true
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -55,7 +55,7 @@ I strongly recommend also using the "Index WP MySQL for Speed" plugin to add ind
 https://wordpress.org/plugins/index-wp-mysql-for-speed/
 
 == Changelog ==
-= 1.0.3 = Added support for Cariera 1.7.2+
+= 1.0.4 = Added support for Cariera 1.7.2+
 
 = 1.0.2 = Omit custom repeatable fields when saved from admin area
 
